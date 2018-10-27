@@ -6,7 +6,7 @@ public class Driver{
     
       //insert code here
      int a;
-
+      int b;
    }
   
 }
