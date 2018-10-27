@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+﻿## Welcome to GitHub Pages.  All are welcome.
 
 You can use the [editor on GitHub](https://github.com/jared-noice/timing-of-sorts/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
