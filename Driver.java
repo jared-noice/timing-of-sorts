@@ -21,6 +21,12 @@ public class Driver{
              bubblesort.sort(int[])
              (end timer)
              (store time)
+             
+             long startTime = System.currentTimeMillis();
+            // Run some code;
+            long stopTime = System.currentTimeMillis();
+
+            System.out.println("Elapsed time was " + (stopTime - startTime) + " miliseconds.");
          
          Output the times calculated in each sort class
       */
