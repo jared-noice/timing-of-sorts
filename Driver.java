@@ -16,6 +16,12 @@ public class Driver{
          
          Something like BubbleSort bubblesort = new BubbleSort(the number of ints entered, range of ints entered)
          
+         --> BubbleSort bubblesort = new BubbleSort()
+             (start timer)
+             bubblesort.sort(int[])
+             (end timer)
+             (store time)
+         
          Output the times calculated in each sort class
       */
       
