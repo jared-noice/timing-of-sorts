@@ -12,6 +12,8 @@ public class Driver{
       System.out.println("What range of integers do you want to sort?");
       int rangeToSort = input.nextInt();
       
+      long lemonade;
+      
       /*need to create an object for each sort that contains a time reported
          
          Something like BubbleSort bubblesort = new BubbleSort(the number of ints entered, range of ints entered)
