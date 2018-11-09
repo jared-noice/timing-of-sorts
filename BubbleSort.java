@@ -2,6 +2,10 @@ import java.util.*;
 
 public class BubbleSort{
    
+   public BubbleSort(int arr[]){
+      this.sort(arr);
+   }
+   
    public int[] sort(int arr[]) 
    { 
       int n = arr.length; 
