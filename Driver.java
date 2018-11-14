@@ -1,9 +1,7 @@
 import java.util.*;
 
 public class Driver{
-  
 
-  
    public static void main(String[] args){
       
       //instance variables
@@ -56,8 +54,6 @@ public class Driver{
       
       System.out.println("Bubble sort took " + bubbleTime + " milliseconds to sort!");
 
-      
-         
       /*need to create an object for each sort that contains a time reported
          
          Something like BubbleSort bubblesort = new BubbleSort(the number of ints entered, range of ints entered)
