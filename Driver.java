@@ -5,7 +5,7 @@ public class Driver{
    public static void main(String[] args){
       
       //instance variables
-      double startTime, endTime, bubbleTime, heapTime, insertionTime, mergeTime, quickTime, selectionTime, radixTime;      
+      long startTime = -1, endTime = -1, bubbleTime = -1, heapTime = -1, insertionTime = -1, mergeTime  = -1, quickTime = -1, selectionTime = -1, radixTime = -1;      
       Scanner input = new Scanner(System.in);
     
       System.out.println("How many integers do you want to try to sort?");
@@ -14,45 +14,67 @@ public class Driver{
       System.out.println("What range of integers do you want to sort?");
       int rangeToSort = input.nextInt();
       
-      
-      
       int[] arr = new int[numToSort];
       for(int i = 0; i<numToSort;i++){
          arr[i]= (int)(Math.random()*rangeToSort+1);
       }
       
-      startTime = System.currentTimeMillis();
+      startTime = System.nanoTime();
       BubbleSort bubblesort = new BubbleSort(arr);
-      endTime = System.currentTimeMillis();
+      endTime = System.nanoTime();
       bubbleTime = endTime - startTime;
       System.out.print("BubbleSort: ========== ");
       bubblesort.printArray(arr);
       
+      startTime = System.nanoTime();
       HeapSort heapsort = new HeapSort(arr);
+      endTime = System.nanoTime();
+      heapTime = endTime - startTime;
       System.out.print("HeapSort: ============ ");
       heapsort.printArray(arr);
       
+      startTime = System.nanoTime();
       InsertionSort insertionsort = new InsertionSort(arr);
+      endTime = System.nanoTime();
+      insertionTime = endTime - startTime;
       System.out.print("Insertion Sort: ====== ");
       insertionsort.printArray(arr);
       
+      startTime = System.nanoTime();
       MergeSort mergesort = new MergeSort(arr);
+      endTime = System.nanoTime();
+      mergeTime = endTime - startTime;
       System.out.print("MergeSort: =========== ");
       mergesort.printArray(arr);
       
+      startTime = System.nanoTime();
       QuickSort quicksort = new QuickSort(arr);
+      endTime = System.nanoTime();
+      quickTime = endTime - startTime;
       System.out.print("QuickSort: =========== ");
       quicksort.printArray(arr);
       
+      startTime = System.nanoTime();
       SelectionSort selectionsort = new SelectionSort(arr);   
+      endTime = System.nanoTime();
+      selectionTime = endTime - startTime;
       System.out.print("SelectionSort: ======= ");         
       selectionsort.printArray(arr);
       
+      startTime = System.nanoTime();
       RadixSort radixsort = new RadixSort(arr);
+      endTime = System.nanoTime();
+      radixTime = endTime-startTime;
       System.out.print("RadixSort ============ ");
       selectionsort.printArray(arr);
       
-      System.out.println("Bubble sort took " + bubbleTime + " milliseconds to sort!");
+      System.out.println("\nBubble sort took " + (double)(bubbleTime/1000000.0) + " milliseconds to sort!");
+      System.out.println("Heap sort took " + (double)(heapTime/1000000.0) + " milliseconds to sort!");
+      System.out.println("Insertion sort took " + (double)(insertionTime/1000000.0) + " milliseconds to sort!");
+      System.out.println("Merge sort took " + (double)(mergeTime/1000000.0) + " milliseconds to sort!");
+      System.out.println("Quick sort took " + (double)(quickTime/1000000.0) + " milliseconds to sort!");
+      System.out.println("Selection sort took " + (double)(selectionTime/1000000.0) + " milliseconds to sort!");
+      System.out.println("Radix sort took " + (double)(radixTime/1000000.0) + " milliseconds to sort!");
 
       /*need to create an object for each sort that contains a time reported
          
@@ -64,9 +86,9 @@ public class Driver{
              (end timer)
              (store time)
              
-             long startTime = System.currentTimeMillis();
+             long startTime = System.currenttimeMillis();
             // Run some code;
-            long stopTime = System.currentTimeMillis();
+            long stopTime = System.currenttimeMillis();
    
             System.out.println("Elapsed time was " + (stopTime - startTime) + " miliseconds.");
          
