@@ -7,6 +7,7 @@ public class Driver{
       //instance variables
       long startTime = -1, endTime = -1, bubbleTime = -1, heapTime = -1, insertionTime = -1, mergeTime  = -1, quickTime = -1, selectionTime = -1, radixTime = -1;      
       Scanner input = new Scanner(System.in);
+      
     
       System.out.println("How many integers do you want to try to sort?");
       int numToSort = input.nextInt();
@@ -68,14 +69,19 @@ public class Driver{
       System.out.print("RadixSort ============ ");
       selectionsort.printArray(arr);
       
-      System.out.println("\nBubble sort took " + (double)(bubbleTime/1000000.0) + " milliseconds to sort!");
-      System.out.println("Heap sort took " + (double)(heapTime/1000000.0) + " milliseconds to sort!");
-      System.out.println("Insertion sort took " + (double)(insertionTime/1000000.0) + " milliseconds to sort!");
-      System.out.println("Merge sort took " + (double)(mergeTime/1000000.0) + " milliseconds to sort!");
-      System.out.println("Quick sort took " + (double)(quickTime/1000000.0) + " milliseconds to sort!");
-      System.out.println("Selection sort took " + (double)(selectionTime/1000000.0) + " milliseconds to sort!");
-      System.out.println("Radix sort took " + (double)(radixTime/1000000.0) + " milliseconds to sort!");
-
+      System.out.println("\nBubble sort:    " + (double)(bubbleTime/1000000.0) + " ms.");
+      System.out.println("Heap sort:      " + (double)(heapTime/1000000.0) + " ms.");
+      System.out.println("Insertion sort: " + (double)(insertionTime/1000000.0) + " ms.");
+      System.out.println("Merge sort:     " + (double)(mergeTime/1000000.0) + " ms.");
+      System.out.println("Quick sort:     " + (double)(quickTime/1000000.0) + " ms.");
+      System.out.println("Selection sort: " + (double)(selectionTime/1000000.0) + " ms.");
+      System.out.println("Radix sort:     " + (double)(radixTime/1000000.0) + " ms.");
+/*    
+      //playing with formatting
+      String format = "%1$17s";
+      System.out.printf(format, "Quicksort: ", ((double)(quickTime/1000000.0) + " ms."));
+*/
+      
       /*need to create an object for each sort that contains a time reported
          
          Something like BubbleSort bubblesort = new BubbleSort(the number of ints entered, range of ints entered)
