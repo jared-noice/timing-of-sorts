@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Driver{
-
+   
    public static void main(String[] args){
       
       //instance variables
@@ -24,50 +24,57 @@ public class Driver{
       BubbleSort bubblesort = new BubbleSort(arr);
       endTime = System.nanoTime();
       bubbleTime = endTime - startTime;
-      System.out.print("BubbleSort: ========== ");
-      bubblesort.printArray(arr);
+      System.out.println("Bubble sort completed.");
+      //System.out.print("BubbleSort: ========== ");
+      //bubblesort.printArray(arr);
       
       startTime = System.nanoTime();
       HeapSort heapsort = new HeapSort(arr);
       endTime = System.nanoTime();
       heapTime = endTime - startTime;
-      System.out.print("HeapSort: ============ ");
-      heapsort.printArray(arr);
+      System.out.println("Heap Sort completed.");
+      //System.out.print("HeapSort: ============ ");
+      //heapsort.printArray(arr);
       
       startTime = System.nanoTime();
       InsertionSort insertionsort = new InsertionSort(arr);
       endTime = System.nanoTime();
       insertionTime = endTime - startTime;
-      System.out.print("Insertion Sort: ====== ");
-      insertionsort.printArray(arr);
+      System.out.println("Insertion Sort completed.");
+      //System.out.print("Insertion Sort: ====== ");
+      //insertionsort.printArray(arr);
       
       startTime = System.nanoTime();
       MergeSort mergesort = new MergeSort(arr);
       endTime = System.nanoTime();
       mergeTime = endTime - startTime;
-      System.out.print("MergeSort: =========== ");
-      mergesort.printArray(arr);
+      System.out.println("Merge Sort completed.");
+      //System.out.print("MergeSort: =========== ");
+      //mergesort.printArray(arr);
       
       startTime = System.nanoTime();
       QuickSort quicksort = new QuickSort(arr);
       endTime = System.nanoTime();
       quickTime = endTime - startTime;
-      System.out.print("QuickSort: =========== ");
-      quicksort.printArray(arr);
+      System.out.println("Quick Sort completed.");
+      //System.out.print("QuickSort: =========== ");
+      //quicksort.printArray(arr);
       
       startTime = System.nanoTime();
       SelectionSort selectionsort = new SelectionSort(arr);   
       endTime = System.nanoTime();
       selectionTime = endTime - startTime;
-      System.out.print("SelectionSort: ======= ");         
-      selectionsort.printArray(arr);
+      System.out.println("Selection Sort completed.");
+      //System.out.print("SelectionSort: ======= ");         
+      //selectionsort.printArray(arr);
       
       startTime = System.nanoTime();
       RadixSort radixsort = new RadixSort(arr);
       endTime = System.nanoTime();
       radixTime = endTime-startTime;
-      System.out.print("RadixSort ============ ");
-      selectionsort.printArray(arr);
+      System.out.println("Radix Sort completed.");
+      //System.out.print("RadixSort ============ ");
+      //selectionsort.printArray(arr);
       
       System.out.println("\nBubble sort:    " + (double)(bubbleTime/1000000.0) + " ms.");
       System.out.println("Heap sort:      " + (double)(heapTime/1000000.0) + " ms.");
