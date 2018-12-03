@@ -83,6 +83,14 @@ public class Driver{
       System.out.println("Quick sort:     " + (double)(quickTime/1000000.0) + " ms.");
       System.out.println("Selection sort: " + (double)(selectionTime/1000000.0) + " ms.");
       System.out.println("Radix sort:     " + (double)(radixTime/1000000.0) + " ms.");
+/*
+      A good idea for making a faster sort would to move (in particular, a merge sort) into multiple "cores" on a PC.
+      By cores, it is not literally the cores of a PC, but something that likens itself to multiple threads. 
+      This would make the merge sort infinitely faster and result in a faster sort in the end.
+
+*/
+
+
 /*    
       //playing with formatting
       String format = "%1$17s";
