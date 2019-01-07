@@ -23,13 +23,13 @@ public class Driver{
       Scanner input = new Scanner(System.in);
       int dataPointCount = 0;
 
-      System.out.println("What sort to use? Type 'all' for all sorts.\n'bubble', 'heap', 'insertion', 'merge', 'quick', 'selection', 'radix'");
+      System.out.println("What sort to use? Type 'all' for all sorts.\n'bubble', 'heap', 'insertion', 'merge', 'quick', 'selection', 'radix', 'default'");
       String sortChosen = input.nextLine();
 
-      while(!sortChosen.equals("all") && !sortChosen.equals("bubble") && !sortChosen.equals("heap") && !sortChosen.equals("insertion") && !sortChosen.equals("merge") && !sortChosen.equals("quick") && !sortChosen.equals("selection") && !sortChosen.equals("radix")){
+      while(!sortChosen.equals("default") && !sortChosen.equals("all") && !sortChosen.equals("bubble") && !sortChosen.equals("heap") && !sortChosen.equals("insertion") && !sortChosen.equals("merge") && !sortChosen.equals("quick") && !sortChosen.equals("selection") && !sortChosen.equals("radix")){
          System.out.println("That is not a valid entry. Please try again.");
          sortChosen = input.nextLine();
-      }
+      }                 
 
       System.out.println("How many integers do you want to try to sort?");
       String ans = input.nextLine();
@@ -37,7 +37,7 @@ public class Driver{
          System.out.println("The number entered must be greater than 0 and be a valid integer. Please try again.");
          ans = input.nextLine();
       }
-      int numToSort = Integer.parseInt(ans);
+      int numToSort = Integer.parseInt(ans);      
       System.out.println();
 
       System.out.println("What range of integers do you want to sort?");
@@ -58,7 +58,7 @@ public class Driver{
          }
          dataPointCount = Integer.parseInt(ans);
          System.out.println();
-      }
+      }            
 
       if(sortChosen.equals("all")){
          int[] arr = new int[numToSort];
@@ -286,6 +286,28 @@ public class Driver{
          }
          System.out.println("****In milliseconds****");
       }
+      
+      else if(sortChosen.equals("default")){
+         int[] arr = new int[numToSort];
+         long[] times = new long[dataPointCount];
+
+         for(int i = 0; i<numToSort;i++){
+            arr[i]= (int)(Math.random()*rangeToSort+1);
+         }
+
+         for(int i = 0; i < dataPointCount; i++){
+            int[] arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy
+            startTime = System.nanoTime();
+            Arrays.sort(arr1);
+            endTime = System.nanoTime();
+            radixTime = endTime - startTime;
+            times[i] = radixTime;
+            System.out.println((double)(times[i]/1000000.0));
+         }
+         System.out.println("****In milliseconds****");
+      }
+      
+      
 
    /*
       A good idea for making a faster sort would to move (in particular, a merge sort) into multiple "cores" on a PC.
