@@ -6,6 +6,10 @@ public class BubbleSort{
       this.sort(arr);
    }
    
+   public BubbleSort(){
+      
+   }
+   
    public int[] sort(int arr[]) 
    { 
       int n = arr.length; 

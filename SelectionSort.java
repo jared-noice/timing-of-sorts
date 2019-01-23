@@ -5,6 +5,11 @@ public class SelectionSort
    public SelectionSort(int arr[]){
       this.sort(arr);
    }
+   
+   public SelectionSort(){
+      
+   }
+   
    public int[] sort(int arr[]) 
    { 
       int n = arr.length; 

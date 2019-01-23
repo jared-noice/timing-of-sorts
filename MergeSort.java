@@ -5,6 +5,10 @@ public class MergeSort{
    public MergeSort(int arr[]){
       this.sort(arr, 0, arr.length-1);
    }
+   
+   public MergeSort(){
+      
+   }
 
  // Merges two subarrays of arr[]. 
    // First subarray is arr[l..m] 

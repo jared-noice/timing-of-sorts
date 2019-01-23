@@ -5,6 +5,10 @@ public class InsertionSort{
    public InsertionSort(int arr[]){
       this.sort(arr);
    }
+   
+   public InsertionSort(){
+      
+   }
 
  /*Function to sort array using insertion sort*/
    void sort(int arr[]) 

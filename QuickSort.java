@@ -5,6 +5,10 @@ public class QuickSort
    public QuickSort(int arr[]){
       this.sort(arr, 0, arr.length-1);
    }
+   
+   public QuickSort(){
+      
+   }
    /* This function takes last element as pivot, 
       places the pivot element at its correct 
       position in sorted array, and places all 

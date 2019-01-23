@@ -4,6 +4,10 @@ public class RadixSort{
    public RadixSort(int arr[]){
       this.sort(arr, arr.length);
    }
+   
+   public RadixSort(){
+      
+   }
    // A utility function to get maximum value in arr[] 
     int getMax(int arr[], int n) 
     { 

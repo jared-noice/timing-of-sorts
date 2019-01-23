@@ -6,6 +6,10 @@ public class HeapSort{
       this.sort(arr);
    }
    
+   public HeapSort(){
+      
+   }
+   
    public void sort(int arr[]) 
    { 
       int n = arr.length; 
