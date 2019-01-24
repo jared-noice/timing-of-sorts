@@ -1,6 +1,8 @@
 import java.util.*;
 
-public class Driver2{
+//NEW DRIVER WITH REVERSE ORDER SORTING (and other common fixes)
+
+public class Driver{
 
    static int[] copyOf(int[] a){
       return a.clone();
@@ -31,47 +33,327 @@ public class Driver2{
          sortChosen = input.nextLine();
       }                 
    
-      System.out.println("How many integers do you want to try to sort?\nType all to run all variants.");
+      System.out.println("How many integers do you want to try to sort?");
       String ans = input.nextLine();
-      while((!isInt(ans) || Integer.parseInt(ans) < 1) && !ans.equalsIgnoreCase("all")){
-         System.out.println("The number entered must be greater than 0 and be a valid integer. Please try again.");
-         ans = input.nextLine();
-      }
-      if(!ans.equalsIgnoreCase("all")){
-         int numToSort = Integer.parseInt(ans);  
-         int rangeToSort = numToSort;    
-      }
-      System.out.println();
-               
-      System.out.println("And how many data points would you like?\nThis does not apply for 'all' (just pick any random number)");
-      ans = input.nextLine();
       while(!isInt(ans) || Integer.parseInt(ans) < 1){
          System.out.println("The number entered must be greater than 0 and be a valid integer. Please try again.");
          ans = input.nextLine();
       }
-      dataPointCount = Integer.parseInt(ans);
+      int numToSort = Integer.parseInt(ans);      
       System.out.println();
+   
+      //System.out.println("What range of integers do you want to sort?");
+      //ans = input.nextLine();
+      //while(!isInt(ans) || Integer.parseInt(ans) < 1){
+      //   System.out.println("The number entered must be greater than 0 and be a valid integer. Please try again.");
+      //   ans = input.nextLine();
+      //}
+      //int rangeToSort = Integer.parseInt(ans);
+      //System.out.println();
+   
+      if(!sortChosen.equals("all")){
+         System.out.println("And how many data points would you like?\nThis does not apply for 'all' (just pick any random number)");
+         ans = input.nextLine();
+         while(!isInt(ans) || Integer.parseInt(ans) < 1){
+            System.out.println("The number entered must be greater than 0 and be a valid integer. Please try again.");
+            ans = input.nextLine();
+         }
+         dataPointCount = Integer.parseInt(ans) + 5;
+         System.out.println();
+      }            
+   
+      if(sortChosen.equals("all")){
+         int[] arr = new int[numToSort];
       
-      if(sortChosen == "all"){
+         //for(int i = 0; i<numToSort;i++){
+         //   arr[i]= (int)(Math.random()*rangeToSort+1);
+         //}
+      
+         int[] arr1 = arr.clone();     //makes new arrays that are a copy of the base array to maintain accuracy
+         int[] arr2 = arr.clone();
+         int[] arr3 = arr.clone();
+         int[] arr4 = arr.clone();
+         int[] arr5 = arr.clone();
+         int[] arr6 = arr.clone();
+         int[] arr7 = arr.clone();
+      
+         System.out.println("arr copies completed.");
+         System.out.println();
+      
+         startTime = System.nanoTime();
+         //BubbleSort bubblesort = new BubbleSort(arr1);
+         endTime = System.nanoTime();
+         bubbleTime = endTime - startTime;
+         System.out.println("Bubble sort completed.");
+      //System.out.print("BubbleSort: ========== ");
+      //bubblesort.printArray(arr);
+      
+         startTime = System.nanoTime();
+         HeapSort heapsort = new HeapSort(arr2);
+         endTime = System.nanoTime();
+         heapTime = endTime - startTime;
+         System.out.println("Heap Sort completed.");
+      //System.out.print("HeapSort: ============ ");
+      //heapsort.printArray(arr);
+      
+         startTime = System.nanoTime();
+         InsertionSort insertionsort = new InsertionSort(arr3);
+         endTime = System.nanoTime();
+         insertionTime = endTime - startTime;
+         System.out.println("Insertion Sort completed.");
+      //System.out.print("Insertion Sort: ====== ");
+      //insertionsort.printArray(arr);
+      
+         startTime = System.nanoTime();
+         MergeSort mergesort = new MergeSort(arr4);
+         endTime = System.nanoTime();
+         mergeTime = endTime - startTime;
+         System.out.println("Merge Sort completed.");
+      //System.out.print("MergeSort: =========== ");
+      //mergesort.printArray(arr);
+      
+         startTime = System.nanoTime();
+         QuickSort quicksort = new QuickSort(arr5);
+         endTime = System.nanoTime();
+         quickTime = endTime - startTime;
+         System.out.println("Quick Sort completed.");
+      //System.out.print("QuickSort: =========== ");
+      //quicksort.printArray(arr);
+      
+         startTime = System.nanoTime();
+         SelectionSort selectionsort = new SelectionSort(arr6);
+         endTime = System.nanoTime();
+         selectionTime = endTime - startTime;
+         System.out.println("Selection Sort completed.");
+      //System.out.print("SelectionSort: ======= ");
+      //selectionsort.printArray(arr);
+      
+         startTime = System.nanoTime();
+         RadixSort radixsort = new RadixSort(arr7);
+         endTime = System.nanoTime();
+         radixTime = endTime-startTime;
+         System.out.println("Radix Sort completed.");
+      //System.out.print("RadixSort ============ ");
+      //radixsort.printArray(arr);
+      
+      //for(int i = 0; i < dataPointCount; i++){
+      //   bubblesort.sort();
+      //}
+      
+         System.out.println("\nBubble sort:    " + (double)(bubbleTime/1000000.0) + " ms.");
+         System.out.println("Heap sort:      " + (double)(heapTime/1000000.0) + " ms.");
+         System.out.println("Insertion sort: " + (double)(insertionTime/1000000.0) + " ms.");
+         System.out.println("Merge sort:     " + (double)(mergeTime/1000000.0) + " ms.");
+         System.out.println("Quick sort:     " + (double)(quickTime/1000000.0) + " ms.");
+         System.out.println("Selection sort: " + (double)(selectionTime/1000000.0) + " ms.");
+         System.out.println("Radix sort:     " + (double)(radixTime/1000000.0) + " ms.");
+      }
+      
+      else if(sortChosen.equals("bubble")){     //these are all the same for each sort, just commenting precisely here
+         int[] arr = new int[numToSort];           //the array to be sorted
+         long[] times = new long[dataPointCount];     //the array to store the times
+         BubbleSort bubbleSort = new BubbleSort();
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+         int[] arr1 = arr.clone();
+      
+         for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
+            arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
+            startTime = System.nanoTime();      //begins the timer
+            bubbleSort.sort(arr1);          //in creating this object, it inherently sorts the given array
+            endTime = System.nanoTime();     //ends the timer
+            bubbleTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
+            times[i] = bubbleTime;     //stores the time for that trial into the times array
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));      //prints the time and puts it at the required decimal location
+         }
+         System.out.println("****In milliseconds****");
+      }
+      
+      else if(sortChosen.equals("heap")){
+         int[] arr = new int[numToSort];           //the array to be sorted
+         long[] times = new long[dataPointCount];     //the array to store the times
+         HeapSort heapsort = new HeapSort();
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+         int[] arr1 = arr.clone();
+      
+         for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
+            arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
+            startTime = System.nanoTime();      //begins the timer
+            heapsort.sort(arr1);          //in creating this object, it inherently sorts the given array
+            endTime = System.nanoTime();     //ends the timer
+            heapTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
+            times[i] = heapTime;     //stores the time for that trial into the times array
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));      //prints the time and puts it at the required decimal location
+         }
+         System.out.println("****In milliseconds****");
+      }
+      
+      else if(sortChosen.equals("insertion")){
+         int[] arr = new int[numToSort];           //the array to be sorted
+         long[] times = new long[dataPointCount];     //the array to store the times
+         InsertionSort insertionsort = new InsertionSort();
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+         int[] arr1 = arr.clone();
+      
+         for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
+            arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
+            startTime = System.nanoTime();      //begins the timer
+            insertionsort.sort(arr1);          //in creating this object, it inherently sorts the given array
+            endTime = System.nanoTime();     //ends the timer
+            insertionTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
+            times[i] = insertionTime;     //stores the time for that trial into the times array
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));      //prints the time and puts it at the required decimal location
+         }
+      }
+      
+      else if(sortChosen.equals("merge")){
+         int[] arr = new int[numToSort];           //the array to be sorted
+         long[] times = new long[dataPointCount];     //the array to store the times
+         MergeSort mergesort = new MergeSort();
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+         int[] arr1 = arr.clone();
+      
+         for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
+            arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
+            startTime = System.nanoTime();      //begins the timer
+            mergesort.sort(arr1, 0, arr1.length-1);          //in creating this object, it inherently sorts the given array
+            endTime = System.nanoTime();     //ends the timer
+            bubbleTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
+            times[i] = bubbleTime;     //stores the time for that trial into the times array
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));      //prints the time and puts it at the required decimal location
+         }
+         System.out.println("****In milliseconds****");
+      }
+      
+      else if(sortChosen.equals("quick")){
+         int[] arr = new int[numToSort];           //the array to be sorted
+         long[] times = new long[dataPointCount];     //the array to store the times
+         QuickSort quicksort = new QuickSort();
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+         int[] arr1 = arr.clone();
+      
+         for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
+            arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
+            startTime = System.nanoTime();      //begins the timer
+            quicksort.sort(arr1, 0, arr1.length);          //in creating this object, it inherently sorts the given array
+            endTime = System.nanoTime();     //ends the timer
+            bubbleTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
+            times[i] = bubbleTime;     //stores the time for that trial into the times array
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));      //prints the time and puts it at the required decimal location
+         }         
+         System.out.println("****In milliseconds****");
+      }
+      
+      else if(sortChosen.equals("selection")){
+         int[] arr = new int[numToSort];           //the array to be sorted
+         long[] times = new long[dataPointCount];     //the array to store the times
+         SelectionSort selectionsort = new SelectionSort();
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+         int[] arr1 = arr.clone();
+      
+         for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
+            arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
+            startTime = System.nanoTime();      //begins the timer
+            selectionsort.sort(arr1);          //in creating this object, it inherently sorts the given array
+            endTime = System.nanoTime();     //ends the timer
+            bubbleTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
+            times[i] = bubbleTime;     //stores the time for that trial into the times array
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));      //prints the time and puts it at the required decimal location
+         }
+         System.out.println("****In milliseconds****");
+      }
+      
+      else if(sortChosen.equals("radix")){
+         int[] arr = new int[numToSort];           //the array to be sorted
+         long[] times = new long[dataPointCount];     //the array to store the times
+         RadixSort radixsort = new RadixSort();
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+         int[] arr1 = arr.clone();
+      
+         for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
+            arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
+            startTime = System.nanoTime();      //begins the timer
+            radixsort.sort(arr1, arr1.length);          //in creating this object, it inherently sorts the given array
+            endTime = System.nanoTime();     //ends the timer
+            bubbleTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
+            times[i] = bubbleTime;     //stores the time for that trial into the times array
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));      //prints the time and puts it at the required decimal location
+         }
+         System.out.println("****In milliseconds****");
+      }
+      
+      else if(sortChosen.equals("default")){
+         int[] arr = new int[numToSort];
+         long[] times = new long[dataPointCount];
          
-         int[] descending0 = new int[1000];
-         int[] descending1 = new int[5000];
-         int[] descending2 = new int[10000];
-         int[] descending3 = new int[50000];
-         int[] descending4 = new int[100000];
-         int[] descending5 = new int[500000];
-         
-         
-         
-         
-         
+         int count = 0;
+         for(int i = numToSort-1; i >= 0; i--){       //this for loop is to randomize the values of the array based on inputted values
+            arr[count]= i;     //sets the element at [i] to a randomized value from 1 to rangeToSort
+            count++;
+         }
+      
+         for(int i = 0; i < dataPointCount; i++){
+            int[] arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy
+            startTime = System.nanoTime();
+            Arrays.sort(arr1);
+            endTime = System.nanoTime();
+            radixTime = endTime - startTime;
+            times[i] = radixTime;
+            if(i > 4)
+               System.out.println((double)(times[i]/1000000.0));
+         }
+         System.out.println("****In milliseconds****");
       }
       
       
-      
-      
-      
-       
-   }         
-}
+   
+   /*
+      A good idea for making a faster sort would to move (in particular, a merge sort) into multiple "cores" on a PC.
+      By cores, it is not literally the cores of a PC, but something that likens itself to multiple threads.
+      This would make the merge sort infinitely faster and result in a faster sort in the end.
+   
+   */
+   
+   /*
+      //playing with formatting
+      String format = "%1$17s";
+      System.out.printf(format, "Quicksort: ", ((double)(quickTime/1000000.0) + " ms."));
+   */
+   
+   }
 
+}
