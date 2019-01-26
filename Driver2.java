@@ -2,7 +2,7 @@ import java.util.*;
 
 //NEW DRIVER WITH REVERSE ORDER SORTING (and other common fixes)
 
-public class Driver{
+public class Driver2{
 
    static int[] copyOf(int[] a){
       return a.clone();
@@ -258,7 +258,7 @@ public class Driver{
          for(int i = 0; i < dataPointCount; i++){     //this is the amount of times the array is sorted
             arr1 = arr.clone();     //makes new array that is a copy of the base array to maintain accuracy (basically use same array to sort
             startTime = System.nanoTime();      //begins the timer
-            quicksort.sort(arr1, 0, arr1.length);          //in creating this object, it inherently sorts the given array
+            quicksort.sort(arr1, 0, arr1.length-1);          //in creating this object, it inherently sorts the given array
             endTime = System.nanoTime();     //ends the timer
             bubbleTime = endTime - startTime;      //calculates the time and stores it into bubbleTime
             times[i] = bubbleTime;     //stores the time for that trial into the times array
